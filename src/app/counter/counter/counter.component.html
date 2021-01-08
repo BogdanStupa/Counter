@@ -1,0 +1,31 @@
+<div class="stopwatch-title">Counter</div>
+<div class="digits-container">
+  <span class="digit">
+    {{ counterServise.counter | async | json | jsonValue:"count" }}
+  </span>
+</div>
+
+<div class="stopwatch-controller">
+  <button counterStartBtn>Start</button>
+  <button counterPauseBtn>Pause</button>
+</div>
+
+<div class="stopwatch-controller">
+  <button counterSetToBtn>Set To</button>
+  <input counterSetToInput  type="number" min="0" [value]="counterServise.counter | async | json | jsonValue:'setTo'"/>
+  <button counterResetBtn>Reset</button>
+</div>
+
+<div class="stopwatch-controller">
+  <button counterCountUpBtn>Count Up</button>
+  <button counterCountDownBtn>Count Down</button>
+</div>
+
+<div class="stopwatch-controller">
+  <label for="tick-speed">Tick Speed:</label>
+  <input counterTickSpeedInput id="tick-speed" type="number" [value]="counterServise.counter | async | json | jsonValue:'tickSpeed'"/>
+  <label for="count-diff">Count Diff:</label>
+  <input counterCountDiffInput id="count-diff" type="number" [value]="counterServise.counter | async | json | jsonValue:'countDiff'"/>
+</div>
+
+<a>{{ cdCheck() }}</a>
